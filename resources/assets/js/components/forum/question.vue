@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="mx-auto"
+    class="mt-2" style="margin-bottom:12px"
   >
 
     <v-card-subtitle class="pb-0">
