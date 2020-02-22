@@ -12,7 +12,7 @@
             <span style="color: gray; font-size:16px;">{{data.user}} said {{data.created_at}}</span>
       </div>
       <v-spacer></v-spacer>
-      <v-btn style="background-color:#008080">5 Replies</v-btn>
+      <v-btn style="background-color:#008080; color:#fff">{{data.reply_count}} Replies</v-btn>
       </v-card-title>
 
       <v-card-text v-html="body"></v-card-text>
