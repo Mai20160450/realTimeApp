@@ -4,6 +4,8 @@
       <v-card-title>
         <div class="headline">{{data.user}}</div>
         <span style="margin-left:6px;font-size:14px;"> said {{data.created_at}}</span>
+        <v-spacer></v-spacer>
+        <like :content= "data"></like>
       </v-card-title>
       <v-divider></v-divider>
 
@@ -31,8 +33,9 @@
 
 <script>
 import EditReply from './editReply'
+import Like from '../likes/like'
   export default {
-    components:{EditReply},
+    components:{EditReply,Like},
     props:['data','index'],
     data(){
       return{
