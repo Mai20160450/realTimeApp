@@ -47,10 +47,10 @@
               </v-list-item-title>
             </v-list-item-content>
 
-            <v-btn icon small @click="deletCat(category.slug ,index)"  style="    margin-right: 20px;">
-              <v-icon style= "color:red">Delete</v-icon>
-            </v-btn>
-            </v-list-item-action>
+              <v-btn icon small @click="deletCat(category.slug ,index)"  style="    margin-right: 20px;">
+                <v-icon style= "color:red">Delete</v-icon>
+              </v-btn>
+           
         </v-list-item>
         <v-divider></v-divider>
       </div>

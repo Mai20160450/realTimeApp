@@ -10,8 +10,10 @@
       <v-toolbar-title>BitFumes</v-toolbar-title>
 
       <v-spacer></v-spacer>
+      
       <div class="hidden-sm-and-down">
         <router-link
+        style="margin-left:10px"
         v-for="item in items"
         :key="item.title"
         :to="item.to"
@@ -26,7 +28,9 @@
 </template>
 
 <script>
+// import AppNotification from './AppNotification'
   export default {
+    // components:{AppNotification},
     data(){
       return{
         items:[
