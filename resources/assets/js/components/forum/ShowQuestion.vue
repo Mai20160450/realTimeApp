@@ -12,7 +12,7 @@
             <span style="color: gray; font-size:16px;">{{data.user}} said {{data.created_at}}</span>
       </div>
       <v-spacer></v-spacer>
-      <v-btn style="background-color:#008080; color:#fff">{{data.reply_count}} Replies</v-btn>
+      <v-btn style="background-color:#008080; color:#fff">{{replyCount}} Replies</v-btn>
       </v-card-title>
 
       <v-card-text v-html="body"></v-card-text>
@@ -35,6 +35,7 @@
     data(){
       return{
         own : User.own(this.data.user_id),
+        replyCount:this.data.reply_count
       }
     },
     computed:{
@@ -52,6 +53,24 @@
         EventBus.$emit('startEditing')
       }
     },
+    created(){
+      EventBus.$on('newReply',() =>{
+        this.replyCount++
+      });
+      EventBus.$on('deleteReply',() =>{
+        this.replyCount--
+      });
+
+      Echo.private('App.User.' + User.id())
+        .notification((notification) => {
+            this.replyCount++
+        });
+
+      Echo.channel('deleteReplyChannel')
+        .listen('DeleteReplyEvent', (e) => {
+            this.replyCount--
+        });
+    }
   }
 </script>
 

@@ -12,13 +12,15 @@
 
 
       <v-container>
-        <replies
+        <replies style="margin-bottom: 18px;"
           :question="question"
         ></replies>
 
-          <new-reply
+          <new-reply v-if="loggedIn"
           :questionSlug="question.slug"
           ></new-reply>
+          <router-link  v-else to="/login">Login in to Reply</router-link>
+ 
       </v-container>
   </div>
 </template>
@@ -41,6 +43,12 @@
       this.getQuestion()
 
     },
+
+    computed:{
+      loggedIn(){
+        return User.loggedIn()
+      }
+    },
     methods:{
       listen(){
         EventBus.$on('startEditing',()=>{
@@ -54,6 +62,7 @@
         axios.get(`/api/question/${this.$route.params.slug}`)
         .then(res => this.question = res.data.data)
       },
+      
     }
   }
 </script>

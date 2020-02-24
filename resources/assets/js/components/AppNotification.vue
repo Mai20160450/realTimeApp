@@ -61,6 +61,10 @@
           this.unread = res.data.unread
           this.unreadCount = res.data.unread.length
         })
+        .catch(error => {
+          console.log(error.response.data.error)
+          Exception.handel(error.response.data.error)
+          })
       },
       readIt(readnotification){
         axios.post('/api/markAsRead' ,{id:readnotification.id})

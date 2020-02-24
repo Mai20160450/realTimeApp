@@ -41,6 +41,8 @@
           .then(res => this.content.splice(index,1))
 
         })
+
+        
         
          Echo.channel('deleteReplyChannel')
         .listen('DeleteReplyEvent', (e) => {
