@@ -4,10 +4,12 @@
     flat
     tile
   >
-    <v-toolbar dense>
+    <v-toolbar color="indigo">
     <!--  <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
 
-      <v-toolbar-title>BitFumes</v-toolbar-title>
+      <v-toolbar-title>
+        <router-link to="/">Bitfumes</router-link>
+      </v-toolbar-title>
 
       <v-spacer></v-spacer>
       

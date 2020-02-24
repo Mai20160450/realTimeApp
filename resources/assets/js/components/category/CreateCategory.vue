@@ -12,12 +12,14 @@
 
         <v-btn
         style="background-color:pink"
+        :disabled="disable"
         type="submit" v-if="editSlug">
         Update
         </v-btn>
 
         <v-btn
         style="background-color:green"
+        :disabled="disable"
         type="submit" v-else>
         Create
         </v-btn>
@@ -108,6 +110,11 @@
       this.editSlug= this.categories[index].slug;
       this.categories.splice(index,1);
     }
+  },
+  computed:{
+    disable(){
+        return !(this.form.title && this.form.category_id && this.form.body)
+      }
   }
 
   }

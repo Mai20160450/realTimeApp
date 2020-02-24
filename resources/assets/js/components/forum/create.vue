@@ -21,6 +21,7 @@
       <v-btn
         style="background-color:green"
         type="submit"
+        :disabled="disable"
       >
         Create
       </v-btn>
@@ -54,6 +55,11 @@
         axios.post('/api/question',this.form)
         .then(res => this.$router.push(res.data.path))
         .catch(error => this.errors = response.data.error)
+      }
+    },
+    computed:{
+      disable(){
+        return !(this.form.title && this.form.category_id && this.form.body)
       }
     }
 

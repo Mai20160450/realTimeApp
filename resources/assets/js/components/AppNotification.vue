@@ -40,6 +40,7 @@
         read:{},
         unread:{},
         unreadCount:0,
+        sound: "http://soundbible.com/mp3/sms-alert-5-daniel_simon.mp3",
       }
     },
     created(){
@@ -49,11 +50,16 @@
 
       Echo.private('App.User.' + User.id())
         .notification((notification) => {
+          this.palySound()
             this.unread.unshift(notification)
             this.unreadCount++
         });
     },
     methods:{
+      palySound(){
+        let alert = new Audio(this.sound)
+        alert.play()
+      },
       getNotifications(){
         axios.post('/api/notifications')
         .then(res =>{
